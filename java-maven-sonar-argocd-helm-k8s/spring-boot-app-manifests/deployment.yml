@@ -15,7 +15,7 @@ spec:
         app: spring-boot-app
     spec:
       containers:
-      - name: spring-boot-app
+      - name: happyapp
         image: sksamailali/happyapp:2
         ports:
         - containerPort: 8080
