@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: sksamailali/happyapp:9
+        image: sksamailali/happyapp:replaceImageTag
         ports:
         - containerPort: 8080
