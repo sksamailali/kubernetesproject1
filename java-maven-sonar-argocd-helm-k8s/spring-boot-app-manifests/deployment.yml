@@ -5,7 +5,7 @@ metadata:
   labels:
     app: spring-boot-app
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: spring-boot-app
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: happyapp
-        image: sksamailali/happyapp:2
+        image: sksamailali/springboot:13
         ports:
         - containerPort: 8080
