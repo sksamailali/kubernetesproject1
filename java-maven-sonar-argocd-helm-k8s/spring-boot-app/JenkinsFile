@@ -19,14 +19,13 @@ pipeline {
         }
 
         stage('Run Inside Docker') {
-            agent { label 'docker-node' }
+          stages {
+        stage('Run Docker Container with Label') {
             steps {
-                script {
-                    docker.image('abhishekf5/maven-abhishek-docker-agent:v1').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
-                        sh 'docker --version' // Check if Docker is available
-                        sh 'mvn clean install'
-                    }
-                }
+                sh 'docker run -d --label docker-node -v /var/run/docker.sock:/var/run/docker.sock abhishekf5/maven-abhishek-docker-agent:v1'
+            }
+        }
+    }
             }
         }
 
