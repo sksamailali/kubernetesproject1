@@ -17,6 +17,7 @@ pipeline {
                 // git branch: 'main', url: 'https://github.com/sksamailali/kubernetesproject1.git'
             }
         }
+
         stage('Run Inside Docker') {
             steps {
                 script {
@@ -26,6 +27,8 @@ pipeline {
                     }
                 }
             }
+        }
+
         stage('Build and Test') {
             steps {
                 sh 'ls -ltr'
