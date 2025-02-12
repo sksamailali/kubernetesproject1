@@ -19,13 +19,8 @@ pipeline {
         }
 
         stage('Run Inside Docker') {
-          stages {
-        stage('Run Docker Container with Label') {
             steps {
                 sh 'docker run -d --label docker-node -v /var/run/docker.sock:/var/run/docker.sock abhishekf5/maven-abhishek-docker-agent:v1'
-            }
-        }
-    }
             }
         }
 
