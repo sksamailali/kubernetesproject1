@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        label 'docker-node' // Ensures the pipeline runs on a specific node with Docker installed
+        docker {
+            image 'abhishekf5/maven-abhishek-docker-agent:v1'
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mounts Docker socket
+        }
     }
 
     environment {
@@ -15,12 +18,6 @@ pipeline {
             steps {
                 sh 'echo "Checkout Passed"'
                 // git branch: 'main', url: 'https://github.com/sksamailali/kubernetesproject1.git'
-            }
-        }
-
-        stage('Run Inside Docker') {
-            steps {
-                sh 'docker run -d --label docker-node -v /var/run/docker.sock:/var/run/docker.sock abhishekf5/maven-abhishek-docker-agent:v1'
             }
         }
 
