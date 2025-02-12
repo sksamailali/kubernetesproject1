@@ -19,6 +19,7 @@ pipeline {
         }
 
         stage('Run Inside Docker') {
+            agent { label 'docker-node' }
             steps {
                 script {
                     docker.image('abhishekf5/maven-abhishek-docker-agent:v1').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
