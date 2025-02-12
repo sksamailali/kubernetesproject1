@@ -1,11 +1,10 @@
 pipeline {
     agent {
-        dockerContainer {
+        docker {
             image 'abhishekf5/maven-abhishek-docker-agent:v1'
-            docker.image().inside() '--user root -v /var/run/docker.sock:/var/run/docker.sock' // Mounts Docker socket
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mounts Docker socket
         }
     }
-
     environment {
         SONAR_URL = "http://3.15.1.174:9000"
         GIT_REPO_NAME = "kubernetesproject1"
