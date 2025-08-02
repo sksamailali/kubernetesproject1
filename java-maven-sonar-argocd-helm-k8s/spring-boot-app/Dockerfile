@@ -8,6 +8,7 @@ ARG artifact=target/spring-boot-web.jar
 WORKDIR /opt/app
 
 COPY ${artifact} app.jar
+RUN mkdir /.docker
 
 # This should not be changed
 ENTRYPOINT ["java","-jar","app.jar"]
